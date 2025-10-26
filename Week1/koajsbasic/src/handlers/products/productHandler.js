@@ -6,7 +6,7 @@ import {
     remove
 } from "../../database/productRepository.js"
 import {pickFieldsProduct} from "../../utils/algorithm.js";
-export const getProducts = (ctx) => {
+export async function getProducts(ctx){
     try {
         const {limit, sort} = ctx.request.query
         return ctx.body = {
@@ -23,7 +23,7 @@ export const getProducts = (ctx) => {
     }
 }
 
-export function getProduct(ctx) {
+export async function getProduct(ctx) {
     try {
         const {id} = ctx.params
         const {fields} = ctx.request.query
@@ -46,7 +46,7 @@ export function getProduct(ctx) {
     }
 }
 
-export function save(ctx){
+export async function save(ctx){
     try {
         const productData = ctx.request.body
         addProduct(productData)
@@ -61,7 +61,7 @@ export function save(ctx){
     }
 }
 
-export function updateProduct(ctx){
+export async function updateProduct(ctx){
     try {
         const {id} = ctx.params
         const productData = ctx.request.body
@@ -76,7 +76,7 @@ export function updateProduct(ctx){
     }
 }
 
-export function removeProduct(ctx){
+export async function removeProduct(ctx){
     try {
         const {id} = ctx.params
         remove(id)
