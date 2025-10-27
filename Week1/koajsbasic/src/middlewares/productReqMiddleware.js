@@ -14,7 +14,7 @@ export default async function productReqMiddleware(ctx, next){
             createdAt: yup.date().default(() => new Date())
         })
 
-        await productSchema.validate(postData)
+        ctx.request.body = await productSchema.validate(postData)
         next()
     } catch (e){
         ctx.status = 400;

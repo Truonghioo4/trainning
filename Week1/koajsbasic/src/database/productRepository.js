@@ -1,6 +1,5 @@
 import fs from "fs"
-import data from "./products.json" with {type: "json"}
-const { products } = data
+import products from "./products.json" with {type: "json"}
 import {getLimtProducts, getSortedProducts} from "../utils/algorithm.js";
 
 export function getAll(limit, sort){
@@ -20,12 +19,11 @@ export function getOne(id){
 }
 
 export function add(data){
-    data = {...data , createdAt: new Date().toISOString()}
     const updatedProducts = [
         data, ...products]
     console.log(updatedProducts)
     return fs.writeFileSync("src/database/products.json", JSON.stringify(
-        { products: updatedProducts }, null, 2), 'utf-8')
+        updatedProducts, null, 2), 'utf-8')
 }
 
 export function update(id, data){
@@ -38,7 +36,7 @@ export function update(id, data){
         return p
     })
     return fs.writeFileSync('src/database/products.json', JSON.stringify(
-        {products: updatedProducts}, null, 2))
+        updatedProducts, null, 2))
 }
 
 

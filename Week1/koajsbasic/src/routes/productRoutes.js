@@ -2,7 +2,7 @@ import Router from "koa-router";
 import * as productHandler from "../handlers/products/productHandler.js"
 import productReqMiddleware from "../middlewares/productReqMiddleware.js"
 const router = new Router({
-    prefix: '/api/products'
+    prefix: '/products'
 });
 
 router.get('/',  productHandler.getProducts)
