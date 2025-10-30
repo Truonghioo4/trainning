@@ -1,25 +1,25 @@
 {
-  "name": "koajsbasic",
-  "version": "1.0.0",
-  "main": "src/server.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch src/server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@koa/cors": "^5.0.0",
-    "koa": "^3.0.3",
-    "koa-body": "^6.0.1",
-    "koa-router": "^14.0.0",
-    "yup": "^1.7.1"
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^10.1.0",
-    "nodemon": "^3.1.10"
-  }
+	"name": "koajsbasic",
+	"version": "1.0.0",
+	"main": "src/server.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon src/server.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@koa/cors": "^5.0.0",
+		"koa": "^3.0.3",
+		"koa-body": "^6.0.1",
+		"koa-router": "^14.0.0",
+		"yup": "^1.7.1"
+	},
+	"devDependencies": {
+		"@faker-js/faker": "^10.1.0",
+		"nodemon": "^3.1.10"
+	}
 }

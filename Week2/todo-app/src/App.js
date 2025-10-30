@@ -1,19 +1,22 @@
-import './App.css';
-import TodoForm from "./components/TodoForm";
-import Todos from './components/Todos';
-import useFetchTodos from './hooks/useFetchTodos';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout";
+import Router from "./routes/routes";
+import { AppProvider } from "@shopify/polaris";
+import TodoContextProvider from "./context/TodoContextProvider";
 
 function App() {
-  const { todos, setTodos } = useFetchTodos()
-  return (
-    <div className="app">
-      <div className="title">Todo App</div>
-      <div className="todo-list">
-        <TodoForm todos={todos} setTodos={setTodos}/>
-        <Todos todos={todos} setTodos={setTodos}/>
-      </div>
-    </div>
-  );
+	return (
+		<AppProvider>
+			<BrowserRouter>
+				<TodoContextProvider>
+					<AppLayout>
+						<Router />
+					</AppLayout>
+				</TodoContextProvider>
+			</BrowserRouter>
+		</AppProvider>
+	);
 }
 
 export default App;

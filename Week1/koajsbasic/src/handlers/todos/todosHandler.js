@@ -1,9 +1,9 @@
 import * as todosRepository from "../../database/todosRepository.js"
 export async function getTodos(ctx){
     try {
-        // const {limit, sort} = ctx.request.query
+        const {search} = ctx.request.query
         return ctx.body = {
-            data: todosRepository.getAll()
+            data: todosRepository.getAll(search)
         }
     }
     catch (e) {
@@ -39,7 +39,8 @@ export async function getTodo(ctx) {
 export async function addTodo(ctx){
     try {
         const todoData = ctx.request.body
-        const addedTodo = todosRepository.add(todoData)
+        const addedTodo = await todosRepository.add(todoData)
+
         ctx.status = 201;
         return ctx.body = { success: true, message: "Added successfully.", data: addedTodo }
     }
@@ -56,6 +57,8 @@ export async function updateTodo(ctx){
     try {
         const {id} = ctx.params
         const todoData = ctx.request.body
+        console.log(todoData);
+        
         todosRepository.update(id, todoData)
         ctx.status = 201;
         return ctx.body = { success: true, message: "Updated successfully." }

@@ -10,6 +10,7 @@ html{
 }
 body{
     background-image: linear-gradient( 105.9deg,  rgba(0,122,184,1) 24.4%, rgba(46,0,184,0.88) 80.5% );
+    font-size: 1.6rem;
 }
 .app {
     margin: 5rem auto;

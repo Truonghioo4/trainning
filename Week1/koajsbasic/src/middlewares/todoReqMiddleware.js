@@ -4,7 +4,6 @@ export default async function todoReqMiddleware(ctx, next){
     try {
         const postData = ctx.request.body
         const todoSchema = yup.object().shape({
-            id: yup.number().positive().integer().required(),
             title: yup.string().required(),
             completed: yup.boolean().default(false),
             createdAt: yup.date().default(() => new Date())
